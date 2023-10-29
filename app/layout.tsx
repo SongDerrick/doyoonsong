@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-
+import TopNavBar from '@/components/top-nav'
+import { Stack,Container } from '@mui/material';
+import { ContactEmergency } from '@mui/icons-material';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -13,10 +15,18 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
-}) {
+}) 
+
+
+{
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <>
+    <Stack>
+      <TopNavBar />
+      <Container sx={{width: 1200}}>
+        {children}
+      </Container>
+    </Stack>
+    </>
   )
 }
